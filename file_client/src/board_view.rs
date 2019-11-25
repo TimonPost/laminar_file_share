@@ -17,6 +17,7 @@ pub enum Cell {
     Empty,
 }
 
+#[derive(Clone)]
 pub struct AcknowledgementBoard {
     pub size: Vec2,
     pub cells: Vec<Cell>,
@@ -34,7 +35,7 @@ impl AcknowledgementBoard {
         let empty_cells = n_cells - options.acknowledge_cells;
 
         for (i, ref mut cell) in board.cells.iter_mut().enumerate() {
-            if i > n_cells - empty_cells {
+            if i >= n_cells - empty_cells {
                 **cell = Cell::Empty;
             }
         }
@@ -53,8 +54,8 @@ pub struct AcknowledgementBoardView {
 
 impl AcknowledgementBoardView {
     pub fn new(options: Options) -> Self {
-        let overlay = vec![Cell::Pending; options.size.x * options.size.y];
         let board = AcknowledgementBoard::new(options);
+        let overlay = board.cells.clone();
         AcknowledgementBoardView { board, overlay }
     }
 
@@ -72,7 +73,7 @@ impl cursive::view::View for AcknowledgementBoardView {
             let text = match *cell {
                 Cell::Acknowledged => "■",
                 Cell::Pending => "■",
-                Cell::Empty => "■",
+                Cell::Empty => "X",
             };
 
             let color = match *cell {
