@@ -43,7 +43,8 @@ fn step_ui(cursive: &mut Cursive, clients: &HashMap<SocketAddr, ClientEntry>) {
 
         for client in clients {
             list.add_child(
-                &format!("{} | %", client.0),
+                &format!("{} | {}%", client.0,  ((100.0 / client. 1.total_bytes as f32) as f32
+                    * client.1.received_bytes.len() as f32)),
                 EditView::new(),
             );
         }
@@ -60,7 +61,7 @@ fn setup_cursive() -> Cursive {
 
     let list_view = ListView::new()
         .child(
-            "Age",
+            "Connection",
             // Popup-mode SelectView are small enough to fit here
             SelectView::new()
                 .popup()
@@ -70,7 +71,7 @@ fn setup_cursive() -> Cursive {
             // We can also add children procedurally
             for i in 0..50 {
                 list.add_child(
-                    &format!("Item {}", i),
+                    &format!("{}", i),
                     EditView::new(),
                 );
             }

@@ -1,7 +1,7 @@
 use crossbeam_channel::Receiver;
-use file_common::{file_bytes, ConnectionState, TestPacket};
+use file_common::{ConnectionState, TestPacket};
 use laminar::{Packet, Socket, SocketEvent};
-use std::{collections::VecDeque, io, io::Write, net::SocketAddr, time::Instant};
+use std::{collections::VecDeque, net::SocketAddr, time::Instant};
 
 pub struct Client {
     client_state: ConnectionState,
@@ -20,7 +20,8 @@ impl Client {
         let client_addr = "127.0.0.1:0".parse::<SocketAddr>().unwrap();
         let socket = Socket::bind(client_addr).unwrap();
 
-        let packet_chunks = to_sent.chunks(chunk_size)
+        let packet_chunks = to_sent
+            .chunks(chunk_size)
             .map(|x| x.to_vec())
             .enumerate()
             .map(|(i, e)| (i, e))
@@ -35,13 +36,12 @@ impl Client {
             server_addr: "127.0.0.1:12346".parse().unwrap(),
             packet_chunks,
             chunk_size,
-            total_length: to_sent.len()
+            total_length: to_sent.len(),
         }
     }
 
     pub fn poll(&mut self) -> laminar::Result<()> {
         self.socket.manual_poll(Instant::now());
-
 
         self.receive_packet()?;
 
@@ -49,7 +49,7 @@ impl Client {
             return self.connect();
         }
 
-        self.sent_next_packet()
+        self.sent_next_chunk()
     }
 
     fn receive_packet(&mut self) -> laminar::Result<()> {
@@ -82,7 +82,7 @@ impl Client {
         Ok(())
     }
 
-    fn sent_next_packet(&mut self) -> laminar::Result<()> {
+    fn sent_next_chunk(&mut self) -> laminar::Result<()> {
         if self.client_state != ConnectionState::Connected {
             unreachable!("Can not sent while disconnected");
         }

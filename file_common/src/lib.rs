@@ -1,11 +1,8 @@
-use crossterm::{cursor, execute};
 use serde::{Deserialize, Serialize};
 use std::{
     fs::File,
     io,
-    io::{stdout, Read, Write},
-    thread,
-    time::Duration,
+    io::Read,
 };
 
 #[derive(Serialize, Deserialize)]

@@ -10,7 +10,6 @@ edition = "2018"
 file_common = {path = "../file_common"}
 laminar = { git = "https://github.com/amethyst/laminar"}
 bincode = "1.2.0"
-crossterm = "0.13.3"
 serde = { version = "1.0.0", features = ["derive"] }
 crossbeam-channel = "0.3.0"
 cursive = { git = "https://github.com/gyscos/cursive", features=["crossterm-backend"], default-features=false }

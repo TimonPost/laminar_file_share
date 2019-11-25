@@ -1,22 +1,20 @@
-use cursive::direction::Direction;
-use cursive::event::{Event, EventResult, MouseButton, MouseEvent};
-use cursive::theme::{BaseColor, Color, ColorStyle};
-use cursive::vec::Vec2;
-use cursive::views::{Button, Dialog, LinearLayout, Panel, SelectView};
-use cursive::Cursive;
-use cursive::Printer;
+use cursive::{
+    theme::{BaseColor, Color, ColorStyle},
+    vec::Vec2,
+    Printer,
+};
 
 #[derive(Clone, Copy)]
 pub struct Options {
     pub size: Vec2,
-    pub acknowledge_cells: usize
+    pub acknowledge_cells: usize,
 }
 
 #[derive(Clone, Copy)]
 pub enum Cell {
     Acknowledged,
     Pending,
-    Empty
+    Empty,
 }
 
 pub struct AcknowledgementBoard {
@@ -35,19 +33,13 @@ impl AcknowledgementBoard {
 
         let empty_cells = n_cells - options.acknowledge_cells;
 
-        board
-    }
-
-    fn get_mut(&mut self, pos: Vec2) -> Option<&mut Cell> {
-        self.cell_id(pos).map(move |i| &mut self.cells[i])
-    }
-
-    pub fn cell_id(&self, pos: Vec2) -> Option<usize> {
-        if pos < self.size {
-            Some(pos.x + pos.y * self.size.x)
-        } else {
-            None
+        for (i, ref mut cell) in board.cells.iter_mut().enumerate() {
+            if i > n_cells - empty_cells {
+                **cell = Cell::Empty;
+            }
         }
+
+        board
     }
 }
 
@@ -57,33 +49,14 @@ pub struct AcknowledgementBoardView {
 
     // Visible board
     overlay: Vec<Cell>,
-
-    focused: Option<Vec2>,
 }
 
 impl AcknowledgementBoardView {
     pub fn new(options: Options) -> Self {
         let overlay = vec![Cell::Pending; options.size.x * options.size.y];
         let board = AcknowledgementBoard::new(options);
-        AcknowledgementBoardView {
-            board,
-            overlay,
-            focused: None,
-        }
+        AcknowledgementBoardView { board, overlay }
     }
-
-//    fn get_cell(&self, pos: Vec2) -> Option<Vec2> {
-//        pos
-//            .checked_sub(0)
-//            .map(|pos| pos.map_x(|x| x / 2))
-//            .and_then(|pos| {
-//                if pos.fits_in(self.board.size) {
-//                    Some(pos)
-//                } else {
-//                    None
-//                }
-//            })
-//    }
 
     pub fn acknowledge(&mut self, acknowledge_id: usize) {
         self.overlay[acknowledge_id] = Cell::Acknowledged;
@@ -93,7 +66,7 @@ impl AcknowledgementBoardView {
 impl cursive::view::View for AcknowledgementBoardView {
     fn draw(&self, printer: &Printer) {
         for (i, cell) in self.overlay.iter().enumerate() {
-            let x = (i % self.board.size.x);
+            let x = i % self.board.size.x;
             let y = i / self.board.size.x;
 
             let text = match *cell {
