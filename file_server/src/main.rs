@@ -34,23 +34,20 @@ fn main() {
 }
 
 fn step_ui(cursive: &mut Cursive, clients: &HashMap<SocketAddr, ClientEntry>) {
+    cursive.step();
+    cursive.refresh();
+
     if let Some(ref mut list) = cursive.find_id::<ListView>("table")
     {
-        cursive.step();
-        cursive.refresh();
-//        list.clear();
-//
+        list.clear();
 
-//
-//        for client in clients {
-//            list.add_child(
-//                &format!("Item {}", client.0),
-//                EditView::new(),
-//            );
-//        }
+        for client in clients {
+            list.add_child(
+                &format!("{} | %", client.0),
+                EditView::new(),
+            );
+        }
 
-    } else {
-        panic!();
     }
 }
 
