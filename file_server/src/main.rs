@@ -51,11 +51,7 @@ fn step_ui(cursive: &mut Cursive, clients: &HashMap<SocketAddr, ClientEntry>) {
 }
 
 fn setup_cursive() -> Cursive {
-    // Creates the cursive root - required for every application.
     let mut siv = Cursive::crossterm().unwrap();
-
-    //    let mut table = view::table_view();
-    //    table.set_items(vec![ClientEntry::new("127.0.0.1:12355".parse().unwrap(), 10000)]);
 
     let list_view = ListView::new()
         .child(

@@ -14,32 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecc03504-c953-48e7-a08b-b23a41aa56fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/src/board_view.rs" beforeDir="false" afterPath="$PROJECT_DIR$/file_common/src/acknowledgement_board_view.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/file_client/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/file_client/target/.rustc_info.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/target/debug/deps/file_client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/file_client/target/debug/deps/file_client.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/target/debug/deps/file_client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/file_client/target/debug/deps/file_client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/target/debug/file_client.d" beforeDir="false" afterPath="$PROJECT_DIR$/file_client/target/debug/file_client.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/target/debug/file_client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/file_client/target/debug/file_client.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_client/target/debug/file_client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/file_client/target/debug/file_client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_common/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/file_common/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_35418.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_42122.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_45736.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_46921.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_51839.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_51875.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_51876.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/result_127.0.0.1_51877.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/file_server/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/file_server/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/src/server.rs" beforeDir="false" afterPath="$PROJECT_DIR$/file_server/src/server.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/src/table_view.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/src/view.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/file_server/target/.rustc_info.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/target/debug/.fingerprint/file_server-1958cda8953fd466/output" beforeDir="false" afterPath="$PROJECT_DIR$/file_server/target/debug/.fingerprint/file_server-1958cda8953fd466/output" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/target/debug/deps/file_server.d" beforeDir="false" afterPath="$PROJECT_DIR$/file_server/target/debug/deps/file_server.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file_server/target/debug/file_server.d" beforeDir="false" afterPath="$PROJECT_DIR$/file_server/target/debug/file_server.d" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +27,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file_server/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="1196">
+              <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/file_server/src/server.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -61,23 +45,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file_client/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
+            <state relative-caret-position="-412">
               <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/file_common/src/lib.rs">
+        <entry file="file://$PROJECT_DIR$/file_client/src/client.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
-              <folding>
-                <element signature="e#413#414#0" expanded="true" />
-                <element signature="e#462#463#0" expanded="true" />
-                <element signature="e#514#515#0" expanded="true" />
-                <element signature="e#563#564#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="253">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -95,9 +73,9 @@
         <option value="$PROJECT_DIR$/file_client/src/client.rs" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/file_client/src/board_view.rs" />
-        <option value="$PROJECT_DIR$/file_server/src/main.rs" />
         <option value="$PROJECT_DIR$/file_client/src/main.rs" />
         <option value="$PROJECT_DIR$/file_common/src/lib.rs" />
+        <option value="$PROJECT_DIR$/file_server/src/main.rs" />
       </list>
     </option>
   </component>
@@ -309,7 +287,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3794000" />
+    <option name="totallyTimeSpent" value="3946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1096" extended-state="6" />
@@ -376,13 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_server/src/server.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file_client/src/foo.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -416,37 +387,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_client/src/client.rs">
+    <entry file="file://$PROJECT_DIR$/file_common/src/lib.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file_client/src/main.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="207">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/file_server/src/main.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="1196">
+          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file_common/src/lib.rs">
+    <entry file="file://$PROJECT_DIR$/file_server/src/server.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
-          <folding>
-            <element signature="e#413#414#0" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="368">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_client/src/main.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-412">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file_client/src/client.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
