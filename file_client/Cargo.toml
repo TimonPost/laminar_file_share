@@ -1,0 +1,16 @@
+[package]
+name = "file_client"
+version = "0.1.0"
+authors = ["Timon Post <timonpost@hotmail.nl>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+file_common = {path = "../file_common"}
+laminar = { path="C:\\Users\\Timon\\Documents\\laminar" }
+bincode = "1.2.0"
+crossterm = "0.13.3"
+serde = { version = "1.0.0", features = ["derive"] }
+crossbeam-channel = "0.3.0"
+cursive = { git = "https://github.com/gyscos/cursive", features=["crossterm-backend"], default-features=false }

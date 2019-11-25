@@ -1,0 +1,11 @@
+D:\programming\test_projects\laminar_test\file_client\target\debug\deps\ppv_lite86-9f1485a814fbd8cd.rmeta: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\soft.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\types.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\mod.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\sse2.rs
+
+D:\programming\test_projects\laminar_test\file_client\target\debug\deps\libppv_lite86-9f1485a814fbd8cd.rlib: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\soft.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\types.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\mod.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\sse2.rs
+
+D:\programming\test_projects\laminar_test\file_client\target\debug\deps\ppv_lite86-9f1485a814fbd8cd.d: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\soft.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\types.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\mod.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\sse2.rs
+
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\lib.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\soft.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\types.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\mod.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\ppv-lite86-0.2.6\src\x86_64\sse2.rs:

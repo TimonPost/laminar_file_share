@@ -1,0 +1,12 @@
+D:\programming\test_projects\laminar_test\file_server\target\debug\deps\cc-f70f8ae422f36e06.rmeta: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\registry.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\winapi.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\com.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\setup_config.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\windows_registry.rs
+
+D:\programming\test_projects\laminar_test\file_server\target\debug\deps\libcc-f70f8ae422f36e06.rlib: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\registry.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\winapi.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\com.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\setup_config.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\windows_registry.rs
+
+D:\programming\test_projects\laminar_test\file_server\target\debug\deps\cc-f70f8ae422f36e06.d: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\registry.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\winapi.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\com.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\setup_config.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\windows_registry.rs
+
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\lib.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\registry.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\winapi.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\com.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\setup_config.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\cc-1.0.47\src\windows_registry.rs:

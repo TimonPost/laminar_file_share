@@ -1,0 +1,11 @@
+D:\programming\test_projects\laminar_test\file_server\target\debug\deps\semver_parser-1ad75cb4eb81623a.rmeta: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\version.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\range.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\common.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\recognize.rs
+
+D:\programming\test_projects\laminar_test\file_server\target\debug\deps\libsemver_parser-1ad75cb4eb81623a.rlib: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\version.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\range.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\common.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\recognize.rs
+
+D:\programming\test_projects\laminar_test\file_server\target\debug\deps\semver_parser-1ad75cb4eb81623a.d: C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\lib.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\version.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\range.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\common.rs C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\recognize.rs
+
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\lib.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\version.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\range.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\common.rs:
+C:\Users\Timon\.cargo\registry\src\github.com-1ecc6299db9ec823\semver-parser-0.7.0\src\recognize.rs:
