@@ -54,47 +54,45 @@ impl Server {
         self.socket.manual_poll(Instant::now());
 
         match self.receiver.try_recv() {
-            Ok(event) => {
-                match event {
-                    SocketEvent::Packet(packet) => match TestPacket::deserialize(packet.payload()) {
-                        TestPacket::Connect(data) => {
-                            self.socket.send(Packet::reliable_ordered(
-                                packet.addr(),
-                                TestPacket::ConnectionAccepted.serialize(),
-                                None,
+            Ok(event) => match event {
+                SocketEvent::Packet(packet) => match TestPacket::deserialize(packet.payload()) {
+                    TestPacket::Connect(data) => {
+                        self.socket.send(Packet::reliable_ordered(
+                            packet.addr(),
+                            TestPacket::ConnectionAccepted.serialize(),
+                            None,
+                        ))?;
+                    }
+                    TestPacket::Packet(nmr, data) => {
+                        let file_len = self.file_len;
+
+                        let client = self
+                            .clients
+                            .entry(packet.addr())
+                            .or_insert_with(|| ClientEntry::new(packet.addr(), file_len));
+
+                        client.received_bytes.extend_from_slice(&data);
+
+                        self.socket.send(Packet::reliable_ordered(
+                            client.endpoint,
+                            TestPacket::Ack(nmr).serialize(),
+                            None,
+                        ))?;
+
+                        if client.received_bytes.len() >= self.file_len {
+                            let mut file = File::create(format!(
+                                "./result_{}_{}.jpg",
+                                client.endpoint.ip(),
+                                client.endpoint.port()
                             ))?;
+                            file.write(&client.received_bytes)?;
                         }
-                        TestPacket::Packet(nmr, data) => {
-                            let file_len = self.file_len;
-
-                            let client = self
-                                .clients
-                                .entry(packet.addr())
-                                .or_insert_with(|| ClientEntry::new(packet.addr(), file_len));
-
-                            client.received_bytes.extend_from_slice(&data);
-
-                            self.socket.send(Packet::reliable_ordered(
-                                client.endpoint,
-                                TestPacket::Ack(nmr).serialize(),
-                                None,
-                            ))?;
-
-                            if client.received_bytes.len() >= self.file_len {
-                                let mut file = File::create(format!(
-                                    "./result_{}_{}.jpg",
-                                    client.endpoint.ip(),
-                                    client.endpoint.port()
-                                ))?;
-                                file.write(&client.received_bytes)?;
-                            }
-                        }
-                        TestPacket::Disconnect => {}
-                        _ => {}
-                    },
-                    SocketEvent::Connect(addr) => {}
-                    SocketEvent::Timeout(addr) => {}
-                }
+                    }
+                    TestPacket::Disconnect => {}
+                    _ => {}
+                },
+                SocketEvent::Connect(addr) => {}
+                SocketEvent::Timeout(addr) => {}
             },
             Err(e) => {}
         }

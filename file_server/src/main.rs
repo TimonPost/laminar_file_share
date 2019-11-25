@@ -1,22 +1,18 @@
-use crate::{
-    server::{ClientEntry, Server},
-    table_view::TableView,
-    view::BasicColumn,
-};
+use crate::server::{ClientEntry, Server};
+use crossterm::{cursor, execute, screen::RawScreen};
 use cursive::{
-    traits::{Boxable, Identifiable},
-    views::Dialog,
+    traits::{Boxable, Identifiable, Scrollable, With},
+    views::{Dialog, EditView, LinearLayout, ListView, SelectView, TextView},
     Cursive,
 };
-use std::{collections::HashMap, thread, time::Duration};
-use std::net::SocketAddr;
-use crossterm::{execute, cursor, screen::RawScreen};
-use std::io::{Write, stdout};
-use cursive::views::{EditView, SelectView, TextView, LinearLayout, ListView};
-use cursive::traits::{With, Scrollable};
+use std::{
+    collections::HashMap,
+    io::{stdout, Write},
+    net::SocketAddr,
+    thread,
+    time::Duration,
+};
 mod server;
-mod table_view;
-mod view;
 
 fn main() {
     let _screen = RawScreen::into_raw_mode();
@@ -37,18 +33,20 @@ fn step_ui(cursive: &mut Cursive, clients: &HashMap<SocketAddr, ClientEntry>) {
     cursive.step();
     cursive.refresh();
 
-    if let Some(ref mut list) = cursive.find_id::<ListView>("table")
-    {
+    if let Some(ref mut list) = cursive.find_id::<ListView>("table") {
         list.clear();
 
         for client in clients {
             list.add_child(
-                &format!("{} | {}%", client.0,  ((100.0 / client. 1.total_bytes as f32) as f32
-                    * client.1.received_bytes.len() as f32)),
+                &format!(
+                    "{} | {}%",
+                    client.0,
+                    ((100.0 / client.1.total_bytes as f32) as f32
+                        * client.1.received_bytes.len() as f32)
+                ),
                 EditView::new(),
             );
         }
-
     }
 }
 
@@ -56,35 +54,28 @@ fn setup_cursive() -> Cursive {
     // Creates the cursive root - required for every application.
     let mut siv = Cursive::crossterm().unwrap();
 
-//    let mut table = view::table_view();
-//    table.set_items(vec![ClientEntry::new("127.0.0.1:12355".parse().unwrap(), 10000)]);
+    //    let mut table = view::table_view();
+    //    table.set_items(vec![ClientEntry::new("127.0.0.1:12355".parse().unwrap(), 10000)]);
 
     let list_view = ListView::new()
         .child(
             "Connection",
             // Popup-mode SelectView are small enough to fit here
-            SelectView::new()
-                .popup()
-                .item_str("0-18")
+            SelectView::new().popup().item_str("0-18"),
         )
         .with(|list| {
             // We can also add children procedurally
             for i in 0..50 {
-                list.add_child(
-                    &format!("{}", i),
-                    EditView::new(),
-                );
+                list.add_child(&format!("{}", i), EditView::new());
             }
         });
 
-    let sc = list_view.with_id("table")
-        .scrollable();
+    let sc = list_view.with_id("table").scrollable();
 
     let dialog = Dialog::new()
         .title("Connections")
         .button("Ok", |s| s.quit())
         .content(sc);
-
 
     siv.add_layer(dialog);
 

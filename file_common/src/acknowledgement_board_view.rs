@@ -7,7 +7,7 @@ use cursive::{
 #[derive(Clone, Copy)]
 pub struct Options {
     pub size: Vec2,
-    pub acknowledge_cells: usize,
+    pub acknowledged_fields: usize,
 }
 
 #[derive(Clone, Copy)]
@@ -32,7 +32,7 @@ impl AcknowledgementBoard {
             cells: vec![Cell::Pending; n_cells],
         };
 
-        let empty_cells = n_cells - options.acknowledge_cells;
+        let empty_cells = n_cells - options.acknowledge_fields;
 
         for (i, ref mut cell) in board.cells.iter_mut().enumerate() {
             if i >= n_cells - empty_cells {
@@ -73,7 +73,7 @@ impl cursive::view::View for AcknowledgementBoardView {
             let text = match *cell {
                 Cell::Acknowledged => "■",
                 Cell::Pending => "■",
-                Cell::Empty => "X",
+                Cell::Empty => "■",
             };
 
             let color = match *cell {

@@ -1,5 +1,5 @@
 use crate::{
-    board_view::{AcknowledgementBoardView, Options},
+    acknowledgement_board_view::{AcknowledgementBoardView, Options},
     client::Client,
 };
 use cursive::{
@@ -10,7 +10,6 @@ use cursive::{
 use file_common::file_bytes;
 use std::{thread, time::Duration};
 
-mod board_view;
 mod client;
 
 fn main() {
@@ -33,7 +32,7 @@ fn setup_cursive(number_of_chunks: usize) -> Cursive {
 
     let table = AcknowledgementBoardView::new(Options {
         size: Vec2::new(x as usize, y as usize),
-        acknowledge_cells: number_of_chunks,
+        acknowledge_fields: number_of_chunks,
     });
 
     let mut cursive = Cursive::crossterm().unwrap();
