@@ -1,18 +1,18 @@
+use std::{collections::VecDeque, net::SocketAddr, time::Instant};
+
 use crossbeam_channel::Receiver;
 use file_common::{ConnectionState, TestPacket};
 use laminar::{Packet, Socket, SocketEvent};
-use std::{collections::VecDeque, net::SocketAddr, time::Instant};
 
 pub struct Client {
     client_state: ConnectionState,
     _endpoint: SocketAddr,
     socket: Socket,
     receiver: Receiver<SocketEvent>,
-    pub packet_chunks: VecDeque<(usize, Vec<u8>)>,
-    pub total_length: usize,
-    pub acked_packets: Vec<usize>,
-    pub chunk_size: usize,
-    pub server_addr: SocketAddr,
+    packet_chunks: VecDeque<(usize, Vec<u8>)>,
+    acked_packets: Vec<usize>,
+    sent_packets: Vec<usize>,
+    server_addr: SocketAddr,
 }
 
 impl Client {
@@ -35,12 +35,12 @@ impl Client {
             acked_packets: Vec::new(),
             server_addr: "127.0.0.1:12346".parse().unwrap(),
             packet_chunks,
-            chunk_size,
-            total_length: to_sent.len(),
+            sent_packets: Vec::new(),
         }
     }
 
-    pub fn poll(&mut self) -> laminar::Result<()> {
+    /// Performs a client tick, this will receive acknowledgements, and sent the next chunk.
+    pub fn tick(&mut self) -> laminar::Result<()> {
         self.socket.manual_poll(Instant::now());
 
         self.receive_packet()?;
@@ -52,6 +52,7 @@ impl Client {
         self.sent_next_chunk()
     }
 
+    /// Receives and handles an packet from the server.
     fn receive_packet(&mut self) -> laminar::Result<()> {
         if let Ok(event) = self.receiver.try_recv() {
             match event {
@@ -82,6 +83,7 @@ impl Client {
         Ok(())
     }
 
+    /// Sends the next file chunk to server.
     fn sent_next_chunk(&mut self) -> laminar::Result<()> {
         if self.client_state != ConnectionState::Connected {
             unreachable!("Can not sent while disconnected");
@@ -91,13 +93,16 @@ impl Client {
             self.socket.send(Packet::reliable_ordered(
                 self.server_addr,
                 TestPacket::Packet(chunk_nmr, data).serialize(),
-                Some(0),
+                Some(1),
             ))?;
+
+            self.sent_packets.push(chunk_nmr);
         }
 
         Ok(())
     }
 
+    /// Sends a connection request to the server.
     fn connect(&mut self) -> laminar::Result<()> {
         let packet = TestPacket::Connect(b"connect".to_vec());
         self.socket.send(Packet::reliable_unordered(
@@ -106,7 +111,23 @@ impl Client {
         ))
     }
 
+    /// Advances state into a new state.
     fn advance_state(&mut self, state: ConnectionState) {
         self.client_state = state;
+    }
+
+    /// Returns the acknowledged packets.
+    pub fn acked_packets(&self) -> &Vec<usize> {
+        &self.acked_packets
+    }
+
+    /// Returns the sent packets.
+    pub fn sent_packets(&self) -> &Vec<usize> {
+        &self.sent_packets
+    }
+
+    /// Returns the number of chunks
+    pub fn number_of_chunks(&self) -> usize {
+        self.packet_chunks.len()
     }
 }

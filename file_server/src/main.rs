@@ -1,31 +1,23 @@
-use crate::server::{ClientEntry, Server};
-use crossterm::{cursor, execute, screen::RawScreen};
+use std::{collections::HashMap, net::SocketAddr};
+
 use cursive::{
-    traits::{Boxable, Identifiable, Scrollable, With},
-    views::{Dialog, EditView, LinearLayout, ListView, SelectView, TextView},
+    traits::{Identifiable, Scrollable, With},
+    views::{Dialog, EditView, ListView, SelectView},
     Cursive,
 };
-use std::{
-    collections::HashMap,
-    io::{stdout, Write},
-    net::SocketAddr,
-    thread,
-    time::Duration,
-};
+
+use crate::server::{ClientEntry, Server};
+
 mod server;
 
 fn main() {
-    let _screen = RawScreen::into_raw_mode();
-    execute!(stdout(), cursor::Hide);
-
     let mut server = Server::new();
 
     let mut cursive = setup_cursive();
 
     loop {
-        server.poll().unwrap();
+        server.tick().unwrap();
         step_ui(&mut cursive, &server.clients);
-        thread::sleep(Duration::from_millis(10));
     }
 }
 
@@ -64,16 +56,16 @@ fn setup_cursive() -> Cursive {
             for i in 0..50 {
                 list.add_child(&format!("{}", i), EditView::new());
             }
-        });
+        })
+        .with_id("table")
+        .scrollable();
 
-    let sc = list_view.with_id("table").scrollable();
-
-    let dialog = Dialog::new()
-        .title("Connections")
-        .button("Ok", |s| s.quit())
-        .content(sc);
-
-    siv.add_layer(dialog);
+    siv.add_layer(
+        Dialog::new()
+            .title("Connections")
+            .button("Ok", |s| s.quit())
+            .content(list_view),
+    );
 
     siv
 }

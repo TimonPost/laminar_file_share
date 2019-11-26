@@ -12,5 +12,4 @@ laminar = { git = "https://github.com/amethyst/laminar"}
 bincode = "1.2.0"
 serde = { version = "1.0.0", features = ["derive"] }
 crossbeam-channel = "0.3.0"
-cursive = { git = "https://github.com/gyscos/cursive", features=["crossterm-backend"], default-features=false }
-crossterm = "0.13.3"
+cursive = { git = "https://github.com/gyscos/cursive", features=["crossterm-backend"], default-features = false }

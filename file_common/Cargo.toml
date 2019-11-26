@@ -10,3 +10,4 @@ edition = "2018"
 bincode = "1.2.0"
 crossterm = "0.13.3"
 serde = { version = "1.0.0", features = ["derive"] }
+cursive = { git = "https://github.com/gyscos/cursive", features=["crossterm-backend"], default-features=false }

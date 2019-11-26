@@ -14,6 +14,7 @@ pub struct Options {
 pub enum Cell {
     Acknowledged,
     Pending,
+    NotSent,
     Empty,
 }
 
@@ -29,10 +30,10 @@ impl AcknowledgementBoard {
 
         let mut board = AcknowledgementBoard {
             size: options.size,
-            cells: vec![Cell::Pending; n_cells],
+            cells: vec![Cell::NotSent; n_cells],
         };
 
-        let empty_cells = n_cells - options.acknowledge_fields;
+        let empty_cells = n_cells - options.acknowledged_fields;
 
         for (i, ref mut cell) in board.cells.iter_mut().enumerate() {
             if i >= n_cells - empty_cells {
@@ -59,6 +60,10 @@ impl AcknowledgementBoardView {
         AcknowledgementBoardView { board, overlay }
     }
 
+    pub fn mark_sent(&mut self, packet_id: usize) {
+        self.overlay[packet_id] = Cell::Pending;
+    }
+
     pub fn acknowledge(&mut self, acknowledge_id: usize) {
         self.overlay[acknowledge_id] = Cell::Acknowledged;
     }
@@ -70,15 +75,12 @@ impl cursive::view::View for AcknowledgementBoardView {
             let x = i % self.board.size.x;
             let y = i / self.board.size.x;
 
-            let text = match *cell {
-                Cell::Acknowledged => "■",
-                Cell::Pending => "■",
-                Cell::Empty => "■",
-            };
+            let text = "■";
 
             let color = match *cell {
                 Cell::Acknowledged => Color::Rgb(0, 255, 0),
-                Cell::Pending => Color::Rgb(255, 0, 0),
+                Cell::NotSent => Color::Rgb(255, 0, 0),
+                Cell::Pending => Color::Rgb(255, 255, 0),
                 Cell::Empty => Color::Rgb(0, 0, 255),
             };
 

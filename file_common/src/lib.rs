@@ -1,9 +1,9 @@
-use serde::{Deserialize, Serialize};
 use std::{fs::File, io, io::Read};
 
-mod acknowledgement_board_view;
-
 pub use acknowledgement_board_view::{AcknowledgementBoardView, Options};
+use serde::{Deserialize, Serialize};
+
+mod acknowledgement_board_view;
 
 #[derive(Serialize, Deserialize)]
 pub enum TestPacket {

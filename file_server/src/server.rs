@@ -1,14 +1,8 @@
+use std::{collections::HashMap, fs::File, io::Write, net::SocketAddr, time::Instant};
+
 use crossbeam_channel::Receiver;
 use file_common::{file_bytes, TestPacket};
 use laminar::{Packet, Socket, SocketEvent};
-use std::{
-    collections::HashMap,
-    fs::File,
-    io::Write,
-    net::SocketAddr,
-    thread,
-    time::{Duration, Instant},
-};
 
 #[derive(Debug, Clone)]
 pub struct ClientEntry {
@@ -50,13 +44,14 @@ impl Server {
         }
     }
 
-    pub fn poll(&mut self) -> laminar::Result<()> {
+    /// Performs a server tick. This will receive packets and sent responses.
+    /// When a server received all packets from a client it will write the shared file to the file system.
+    pub fn tick(&mut self) -> laminar::Result<()> {
         self.socket.manual_poll(Instant::now());
-
-        match self.receiver.try_recv() {
-            Ok(event) => match event {
-                SocketEvent::Packet(packet) => match TestPacket::deserialize(packet.payload()) {
-                    TestPacket::Connect(data) => {
+        if let Ok(event) = self.receiver.try_recv() {
+            if let SocketEvent::Packet(packet) = event {
+                match TestPacket::deserialize(packet.payload()) {
+                    TestPacket::Connect(_) => {
                         self.socket.send(Packet::reliable_ordered(
                             packet.addr(),
                             TestPacket::ConnectionAccepted.serialize(),
@@ -73,10 +68,9 @@ impl Server {
 
                         client.received_bytes.extend_from_slice(&data);
 
-                        self.socket.send(Packet::reliable_ordered(
+                        self.socket.send(Packet::reliable_unordered(
                             client.endpoint,
                             TestPacket::Ack(nmr).serialize(),
-                            None,
                         ))?;
 
                         if client.received_bytes.len() >= self.file_len {
@@ -85,18 +79,13 @@ impl Server {
                                 client.endpoint.ip(),
                                 client.endpoint.port()
                             ))?;
-                            file.write(&client.received_bytes)?;
+                            file.write_all(&client.received_bytes)?;
                         }
                     }
-                    TestPacket::Disconnect => {}
                     _ => {}
-                },
-                SocketEvent::Connect(addr) => {}
-                SocketEvent::Timeout(addr) => {}
-            },
-            Err(e) => {}
+                }
+            }
         }
-
         Ok(())
     }
 }
